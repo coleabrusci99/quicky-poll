@@ -1,0 +1,30 @@
+{% extends 'PollApp/base.html' %}
+
+{% block head_block %}
+    <title>Quicky Poll</title>
+{% endblock %}
+
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron color-primary-1">
+            <h1 class="display-4">Welcome to Quicky Polls!</h1>
+            <p class="lead">If you're looking to make a poll with as many answers as you like, very quickly, and for the low, low price of zero dollars, then quicky polls is the perfect service for you!</p>
+            <hr class="my-4">
+            <p class="color-primary-4">To get started, simply enter the topic/question in the first field, and the amount of answers for your prompt. Then you will be prompted to fill in your answers after submitting. It's as simple as that!</p>
+            <p class="color-primary-4">Your poll will have a link generated along with it, which you can share with friends, family, or colleagues! They can vote on the poll, and view the results after they cast their vote!</p>
+        </div>
+
+        <form method="post">
+            {{form.as_p}}
+            {% if answer_prompts %}
+                {% for prompt in answer_prompts %}
+                    {{prompt.as_p}}
+                {% endfor %}
+            {% else %}
+                <p></p>
+            {% endif %}
+            {% csrf_token %}
+            <input class="btn btn-warning" type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'PollApp/base.html' %}
+
+{% block head_block %}
+    <title>{{poll_title}} Results | Quicky Poll</title>
+{% endblock %}
+
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron color-primary-1">
+            <h1>Thank you for voting!</h1>
+            <p>The results for the "{{poll_title}}" poll are displayed below!</p>
+        </div>
+        <div class="container results">
+            <img id="piechart" src="{{poll_chart.url}}" alt="">
+        </div>
+    </div>
+{% endblock %}

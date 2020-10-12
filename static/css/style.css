@@ -1,0 +1,68 @@
+.center {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+}
+
+label.btn{
+    background-color: #FFD7A4;
+    border: 1px solid black;
+}
+
+label.btn:hover, label.btn.active, label.btn:active, label.btn.focus, label.btn:focus{
+    background-color: #FFC070;
+    box-shadow: 0 0 0 0.2rem rgb(255,195,164,.25);
+}
+
+.btn-group-vertical{
+    width: 60%;
+    margin-top: 10px;
+}
+
+input[type="submit"]{
+    margin-top: 15px;
+}
+
+h2{
+    margin: 10px;
+}
+
+.container{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.results{
+    text-align: center;
+}
+
+#piechart{
+    width: 100%;
+}
+
+body {
+    background-color: #FF5900;
+}
+
+label {
+    color: #FFD7A4;
+}
+
+.color-primary-0 { color: #FF5900 }	/* Main Primary color */
+.color-primary-1 { background-color: #FFC3A4 }
+.color-primary-2 { color: #FFA270 }
+.color-primary-3 { color: #D94C00 }
+.color-primary-4 { color: #A73A00 }
+
+.color-secondary-1-0 { color: #FF8E00 }	/* Main Secondary color (1) */
+.color-secondary-1-1 { background-color: #FFD7A4 }
+.color-secondary-1-2 { color: #FFC070 }
+.color-secondary-1-3 { color: #D97900 }
+.color-secondary-1-4 { color: #A75D00 }
+
+.color-secondary-2-0 { color: #FF000D }	/* Main Secondary color (2) */
+.color-secondary-2-1 { background-color: #FFA4A8 }
+.color-secondary-2-2 { color: #FF7077 }
+.color-secondary-2-3 { color: #D5000B }
+.color-secondary-2-4 { color: #A40008 }

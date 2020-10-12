@@ -1,0 +1,29 @@
+{% extends 'PollApp/base.html' %}
+
+{% block head_block %}
+    <title>{{poll_info.topic}} | Quicky Poll</title>
+{% endblock %}
+
+{% block body_block %}
+    <div class="container center" align="center">
+        <h2>{{poll_info.topic}}</h2>
+        
+        <form method="post">
+            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+                {% if poll_answers %}
+                    {% for answer in poll_answers %}
+                        <label class="btn">
+                            <input type="radio" name="options" id="answer_{{answer}}" value="{{answer}}"> {{answer}}
+                        </label>
+                    {% endfor %}
+                {% else %}
+                    <p>Could not find answers</p>
+                {% endif %}
+                {% csrf_token %}
+            </div>
+            <div>
+                <input class="btn btn-warning" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+{% endblock %}
