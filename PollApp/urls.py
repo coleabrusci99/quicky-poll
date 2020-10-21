@@ -8,3 +8,5 @@ urlpatterns = [
     path('<url>/', views.voting_page, name='voting_page'),
     path('<url>/results/', views.results_page, name='results_page'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

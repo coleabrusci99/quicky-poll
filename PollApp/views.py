@@ -2,11 +2,9 @@ import os
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
-import numpy as np
 from textwrap import wrap
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.templatetags.static import static
 from .forms import StartPollForm, AnswerOptionForm
 from .models import Poll, Answer
 
@@ -68,7 +66,7 @@ def voting_page(request, url):
 
 
 def results_page(request, url):
-    context = {}
+    context = {'MEDIA_URL': settings.MEDIA_URL}
     poll_info = Poll.objects.filter(url=url)[0]
     poll_answers = [ans for ans in Answer.objects.filter(poll=poll_info)]
     context['poll_title'] = poll_info.topic
@@ -79,19 +77,18 @@ def results_page(request, url):
         if ans.tally > 0:
             labels.append('\n'.join(wrap(ans.option, 20)))
             values.append(ans.tally)
-    
+
     fig1, ax1 = plt.subplots()
     ax1.pie(values, labels=labels, autopct='%1.1f%%')
     ax1.axis('equal')
     img_name = '{}.png'.format(poll_info.url)
-    
-    plt.savefig('media/{}'.format(img_name), transparent=True, dpi=150)
-    
-    img_path = os.path.join(settings.MEDIA_ROOT, img_name)
-    
+    context['img_name'] = img_name
+
+    img_path = os.path.join(settings.MEDIA_ROOT, 'images', img_name)
+
+    plt.savefig(img_path, transparent=True, dpi=150)
+
     poll_info.chart = img_path
     poll_info.save()
-
-    context['poll_chart'] = poll_info.chart
 
     return render(request, 'PollApp/results.html', context=context)

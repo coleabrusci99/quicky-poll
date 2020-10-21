@@ -26,11 +26,14 @@ MEDIA_DIR = BASE_DIR / 'media'
 SECRET_KEY = 'n4(8ycvbmk_9xuosts!ym35mt673*pd_c9m^n3$ya#52rxv=8w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '10.0.0.66',
     '127.0.0.1',
+    'coleabrusci99.pythonanywhere.com',
+    'webapp-949550.pythonanywhere.com',
+    'www.quickypoll.xyz',
 ]
 
 
@@ -126,8 +129,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = STATIC_DIR
 STATICFILES_DIRS = [
-    STATIC_DIR,
+
 ]
 
 
